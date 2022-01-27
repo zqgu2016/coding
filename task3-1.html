@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      button {
+        margin-right: 10px;
+      }
+
+      .bar-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+
+      .full-bar {
+        width: 200px;
+        height: 30px;
+        border: 1px solid rgb(60, 151, 60);
+      }
+
+      .progress-bar {
+        width: 0px;
+        height: 30px;
+        background-color: rgb(60, 151, 60);
+        animation: 3s ease-in;
+        transition: width 2s;
+      }
+    </style>
+  </head>
+  <body>
+    <button onclick="start()">start</button>
+    <button onclick="reset()">reset</button>
+    <div class="bar-container">
+      <div class="full-bar">
+        <div class="progress-bar"></div>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    function start() {
+      const bar = document.querySelector(".progress-bar");
+      bar.style.width = "200px";
+    }
+
+    function reset() {
+      const bar = document.querySelector(".progress-bar");
+      bar.style.width = "0px";
+    }
+  </script>
+</html>
