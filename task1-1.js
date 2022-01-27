@@ -1,16 +1,19 @@
-const sortArray = (arr) => {
-  return arr.sort((a, b) => {
-    if (a.length > b.length) {
-      return 1;
+const bubbleSort = (arr) => {
+  const len = arr.length
+  for (let i = 0; i < len; i++) {
+    for (let j = 0; j < len - i - 1; j++) {
+      const pre = arr[j]
+      const next = arr[j + 1]
+      if (pre.length > next.length) {
+        const temp = arr[j]
+        arr[j] = arr[j + 1]
+        arr[j + 1] = temp
+      }
     }
+  }
+  return arr
+}
 
-    if (a.length < b.length) {
-      return -1;
-    }
-
-    return 0;
-  });
-};
 
 const getStringFromArray = (arr, type = "LONGEST", num) => {
   if (!Array.isArray(arr)) {
@@ -21,8 +24,7 @@ const getStringFromArray = (arr, type = "LONGEST", num) => {
     return null;
   }
 
-  const newArr = [...arr];
-  sortArray(newArr);
+  const newArr = bubbleSort([...arr]);
 
   if (type === "SPECIAL_LENGTH" && typeof num === "number") {
     return arr.filter((v) => v.length === num);
